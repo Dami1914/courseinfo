@@ -32,9 +32,9 @@ function App() {
 function Total({ parts }) {
   console.log(parts[1].exercises);
   return (
-    <p>
-      Number of exercises {parts[0].exercises + parts[1].exercises + parts[2].exercises}
-    </p>
+    <strong>
+      Total of {parts[0].exercises + parts[1].exercises + parts[2].exercises} exercises
+    </strong>
   );
 }
 
@@ -69,6 +69,7 @@ function Course({course}){
     <>
       <Header course={course} />
       <Content parts={course.parts} />
+      <Total parts={course.parts}/>
     </>
   )
 }
