@@ -20,25 +20,36 @@ function App() {
         name: 'State of a component',
         exercises: 14,
         id: 3
+      },
+      {
+        name: 'Redux',
+        exercises: 11,
+        id: 4
       }
     ]
   }
-
-  return <Course course={course} />
-
+  return ( 
+    <Course course={course}/>
+  )
 }
 
 //Total Component
-function Total({ parts }) {
-  console.log(parts[1].exercises);
+function Total({parts}) {
+
+  console.log(parts)
+
+  const sum = (a,b)=>{
+     return a + b.exercises;
+  }
   return (
     <strong>
-      Total of {parts[0].exercises + parts[1].exercises + parts[2].exercises} exercises
+      Total of {parts.reduce(sum,0)} exercises
     </strong>
   );
 }
 
-// Part Component
+
+//Part Component
 function Part({ part }) {
   return (
     <p>
@@ -54,6 +65,7 @@ function Content({ parts }) {
       <Part part={parts[0]} />
       <Part part={parts[1]} />
       <Part part={parts[2]} />
+      <Part part={parts[3]} />
     </div>
   );
 }
